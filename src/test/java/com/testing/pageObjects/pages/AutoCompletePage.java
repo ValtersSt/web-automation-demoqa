@@ -12,7 +12,7 @@ public class AutoCompletePage extends WidgetsPage{
   // Locators ----------------------------------------------------------------------------------------------------------
   public static By AUTO_COMPLETE_TITLE = text("Auto Complete");
   // Element to which you would send keystrokes
-  public static By MULTIPLE_COLOR_FIELD = css("input[id=autoCompleteMultipleInput]");
+  public static By MULTIPLE_COLOR_FIELD = css("input[id='autoCompleteMultipleInput']");
   // Element containing the information about actual values
   public static By MULTIPLE_COLOR_CONTAINER = css("div[id='autoCompleteMultipleContainer']");
   // Element to which you would send keystrokes
@@ -28,8 +28,11 @@ public class AutoCompletePage extends WidgetsPage{
   public void setElementValueTo(String elementName, String value){
     switch(elementName){
       case "SINGLE_COLOR_FIELD":
-      case "MULTIPLE_COLOR_FIELD":
 
+      case "MULTIPLE_COLOR_FIELD":
+        getElement(elementName).click();
+        getElement(elementName).sendKeys(value);
+        getElement(elementName).sendKeys(Keys.ENTER);
         // Create a logic that would input the value into given fields, and press (or send) the enter key (Keys.ENTER)
         WebElementFacade e = getElement(elementName);
 
